@@ -1,0 +1,104 @@
+<div class="container">
+
+    <h2>Search Brewry</h2>
+
+</div>
+
+<div class="container">
+
+    <form name="srcForm" id="srcForm" #srcForm="ngForm">
+        <select id="srcType" name="srcType" class="form-select" aria-label="Default select example"
+            (change)="searchBy($event)" ngModel>
+            <option value="Brewry Name">Name</option>
+            <option value="City">City</option>
+            <option value="Type">Type</option>
+        </select>
+        <br>
+        <label>Enter {{srcType}}</label>
+        <input type="text" id="srcText" name="srcText" ngModel>
+
+        <button class="submit" type="submit" (click)="searchBrewry(srcForm)">Search</button>
+    </form>
+
+</div>
+
+
+<div class="container">
+
+    <div class="searchResultContainer">
+
+        <div class="src-table">
+            <table id="result-table" class="table table-success table-striped">
+
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col" width="35%">Name</th>
+                        <th scope="col" width="10%">Type</th>
+                        <th scope="col" width="20%">Country</th>
+                        <th scope="col" width="10%">State</th>
+                        <th scope="col" width="10%">City</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- *ngFor="let note of notes" -->
+                    <tr *ngFor="let data of srcResult"  (click)="showDetails(data.name)">
+                        <td ><a>{{data.name}}</a></td>
+                        <td>{{data.brewery_type}}</td>
+                        <td>{{data.country}}</td>
+                        <td>{{data.state}}</td>
+                        <td>{{data.city}}</td>
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+        </div>
+
+     <div class="src-result" >
+
+                <h2>Brewery Details </h2>
+                <div *ngFor="let data of brewryData">
+                <p>Name : {{data.name}} </p>
+                <p>Brewery Type : {{data.brewery_type}} </p>
+                <p>Address_1 : {{data.address_1}} </p>
+                <p>Address_2 : {{data.address_2}}</p>
+                <p>Address_3 : {{data.address_3}} </p>
+                
+                <p>City : {{data.city}}</p>
+                <p>State Province : {{data.state_province}}</p>                
+                <p>Postal Code : {{data.postal_code}}</p>
+                <p>Country : {{data.country}}</p>
+                <p>Longitude : {{data.longitude}}</p>
+                <p>Latitude : {{data.latitude}}</p>
+                <p>Phone : {{data.phone}}</p>
+                <p>Website Url : {{data.website_url}}</p>
+                <p>State : {{data.state}}</p>
+                <p>Street : {{data.street}}</p>
+                </div>
+
+    </div> 
+
+    </div>
+</div>
+
+
+
+
+<!-- <p>Name : {{brewryData[0].name}} </p>
+                <p>Brewery Type : {{brewryData[0].brewery_type}} </p>
+                <p>Address_1 : {{brewryData[0].brewryData.address_1}} </p>
+                <p>Address_2 : {{brewryData[0].address_2}}</p>
+                <p>Address_3 : {{brewryData[0].address_3}} </p>
+                
+                <p>City : {{brewryData[0].city}}</p>
+                <p>State Province : {{brewryData[0].state_province}}</p>                
+                <p>Postal Code : {{brewryData[0].postal_code}}</p>
+                <p>Country : {{brewryData[0].country}}</p>
+                <p>Longitude : {{brewryData[0].longitude}}</p>
+                <p>Latitude : {{brewryData[0].latitude}}</p>
+                <p>Phone : {{brewryData[0].phone}}</p>
+                <p>Website Url : {{brewryData[0].website_url}}</p>
+                <p>State : {{brewryData[0].state}}</p>
+                <p>Street : {{brewryData[0].street}}</p> -->
